@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <title>Filtriranje polja</title>
+</head>
+<body>
+  <h2>Filtrirani elementi:</h2>
+  <div id="rezultat"></div>
+
+  <script>
+    var arr = ['Ovo', 'je', 'My', 'prvi', 'komad', 'OF', 'JAVASCRIPT', 'koda', 'Koji', ',', 'je', 'proradio'];
+
+    function filtrirajPolje(polja) {
+      return polja.filter(el => {
+        const imaVelikoSlovo = /[A-ZČĆŽŠĐ]/.test(el); 
+        const ima5IliVise = el.replace(/[^a-zA-Z0-9]/g, "").length >= 5; 
+
+        return imaVelikoSlovo || ima5IliVise;
+      });
+    }
+
+    const filtrirano = filtrirajPolje(arr);
+    document.getElementById("rezultat").innerHTML = filtrirano.join(", ");
+  </script>
+</body>
+</html>
